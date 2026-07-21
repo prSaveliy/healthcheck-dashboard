@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --color-bg-root: #151515;
+  --color-bg-surface: #161616;
+  --color-bg-card: #1c1c1c;
+  --color-bg-hover: #242424;
+  --color-bg-active: #2a2a2a;
+  --color-bg-sidebar: #121212;
+  --color-bg-input: #0f0f0f;
+
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #606060;
+
+  --color-border-default: #2a2a2a;
+  --color-border-subtle: #1f1f1f;
+
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-muted: rgba(59 130 246 / 0.12);
+
+  --color-status-ok: #22c55e;
+  --color-status-warn: #f59e0b;
+  --color-status-error: #ef4444;
+  --color-status-unknown: #6b7280;
+
+  --spacing-sidebar: 72px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --color-badge-bg: rgba(0, 0, 0, 0.2);
+
+  --animate-shimmer: shimmer 3s infinite linear;
+
+  --color-shimmer-base: #2a2a2a;
+  --color-shimmer-highlight: #3a3a3a;
+}
+
+@property --color-shimmer-base {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #2a2a2a;
+}
+
+@property --color-shimmer-highlight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #3a3a3a;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@utility shimmer {
+  @apply transition-colors duration-200;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke,
+    --color-shimmer-base, --color-shimmer-highlight;
+  background: var(--color-shimmer-base);
+  background-image: linear-gradient(
+    to right,
+    var(--color-shimmer-base) 0%,
+    var(--color-shimmer-highlight) 20%,
+    var(--color-shimmer-base) 40%,
+    var(--color-shimmer-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: var(--animate-shimmer);
+}
+
+body {
+  --grid-line: rgba(255, 255, 255, 0.01);
+}
+
+body.dark {
+  --color-bg-root: #151515;
+  --color-bg-surface: #161616;
+  --color-bg-card: #1c1c1c;
+  --color-bg-hover: #242424;
+  --color-bg-active: #2a2a2a;
+  --color-bg-sidebar: #121212;
+  --color-bg-input: #0f0f0f;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #606060;
+  --color-border-default: #2a2a2a;
+  --color-border-subtle: #1f1f1f;
+  --color-accent-muted: rgba(59 130 246 / 0.12);
+  --grid-line: rgba(255, 255, 255, 0.01);
+  --color-badge-bg: rgba(0, 0, 0, 0.2);
+  --color-shimmer-base: #2a2a2a;
+  --color-shimmer-highlight: #3a3a3a;
+}
+
+body.light {
+  --color-bg-root: #f8fafc;
+  --color-bg-surface: #ffffff;
+  --color-bg-card: #f1f5f9;
+  --color-bg-hover: #e2e8f0;
+  --color-bg-active: #cbd5e1;
+  --color-bg-sidebar: #f1f5f9;
+  --color-bg-input: #f1f5f9;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-border-default: #cbd5e1;
+  --color-border-subtle: #e2e8f0;
+  --color-accent-muted: rgba(59 130 246 / 0.08);
+  --grid-line: rgba(15, 23, 42, 0.04);
+  --color-badge-bg: transparent;
+  --color-shimmer-base: #e2e8f0;
+  --color-shimmer-highlight: #f1f5f9;
+}
+
+html,
+body,
+#root {
+  @apply h-full bg-bg-root text-text-primary font-sans antialiased transition-colors;
+  transition-duration: var(--theme-transition-duration, 0ms);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#root {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(155, 155, 155, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(155, 155, 155, 0.45);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.25) transparent;
+}
