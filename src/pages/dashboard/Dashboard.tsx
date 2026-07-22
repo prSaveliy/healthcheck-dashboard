@@ -10,7 +10,7 @@ export const DashBoard = ({ children }: { children?: React.ReactNode }) => {
   const setIsSidebarOpen = useDashboardStore(state => state.setIsSidebarOpen);
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden relative">
+    <div className="flex flex-col h-dvh overflow-hidden relative">
       <Header />
       <div className="flex flex-1 overflow-hidden p-6 gap-6 relative">
         <div className="hidden lg:block w-[350px] shrink-0 h-full">

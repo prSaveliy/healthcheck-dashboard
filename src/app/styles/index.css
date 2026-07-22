@@ -127,7 +127,7 @@ body.light {
 html,
 body,
 #root {
-  @apply h-full bg-bg-root text-text-primary font-sans antialiased transition-colors;
+  @apply min-h-dvh bg-bg-root text-text-primary font-sans antialiased transition-colors;
   transition-duration: var(--theme-transition-duration, 0ms);
   font-size: 14px;
   line-height: 1.5;
