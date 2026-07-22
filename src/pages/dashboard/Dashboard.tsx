@@ -1,3 +1,4 @@
+
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 import { Header } from '@/components/layout/Header';
@@ -28,7 +29,7 @@ export const DashBoard = ({ children }: { children?: React.ReactNode }) => {
             isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
-          <ServiceList className={isSidebarOpen ? 'shadow-2xl' : 'shadow-none'} />
+          <ServiceList />
 
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
