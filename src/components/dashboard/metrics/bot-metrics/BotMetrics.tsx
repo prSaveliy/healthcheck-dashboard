@@ -116,10 +116,12 @@ export const BotMetrics = ({ getNow = Date.now }) => {
         type: 'time',
         min: xMin,
         max: xMax,
+        splitNumber: 3,
         axisLabel: {
           color: activeColors.textMuted,
           fontFamily: 'monospace',
           fontSize: 10,
+          hideOverlap: true,
         },
         axisLine: { lineStyle: { color: 'rgba(128, 128, 128, 0.25)' } },
         splitLine: { show: false },
