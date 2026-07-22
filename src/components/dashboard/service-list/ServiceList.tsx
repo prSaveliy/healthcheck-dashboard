@@ -14,7 +14,7 @@ const statusOrder: Record<string, number> = {
   paused: 4,
 };
 
-export const ServiceList = () => {
+export const ServiceList = ({ className }: { className?: string }) => {
   const location = useLocation();
   const [search, setSearch] = useState('');
   const timeframe = useDashboardStore(state => state.timeframe);
@@ -46,7 +46,7 @@ export const ServiceList = () => {
 
   return (
     <div className="w-full h-full font-sans flex flex-col">
-      <div className="flex flex-col h-full border border-border-default bg-bg-sidebar shadow-2xl transition-colors duration-200">
+      <div className={`flex flex-col h-full border border-border-default bg-bg-sidebar transition-all duration-300 ${className ?? 'shadow-2xl'}`}>
         <div className="border-b border-border-default p-4 flex flex-col gap-3 bg-bg-surface shrink-0 transition-colors duration-200">
           <div className="flex items-center gap-4 text-text-secondary transition-colors duration-200">
             <span className="font-mono text-[10px] uppercase tracking-widest">
